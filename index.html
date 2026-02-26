@@ -22,6 +22,10 @@
     </style>
 </head>
 <body>
+    <div id='encryption-status' style='position:fixed; top:0; left:0; width:100%; background:rgba(0,40,0,0.8); color:#0f0; font-family:monospace; font-size:0.55rem; padding:2px 10px; z-index:9999; border-bottom:1px solid #0f0; white-space:nowrap; overflow:hidden;'>
+        <span id='handshake-text'>INITIALIZING SECURE HANDSHAKE...</span>
+    </div>
+
 
 <div id="loader">
     <div id="loader-content" style="width:100%; max-width:400px; line-height:1.6;"></div>
@@ -171,6 +175,23 @@
         let width = Math.floor(Math.random() * 60) + 40; 
         bar.style.width = width + '%';
     }, 800);
+</script>
+
+<script>
+    const statusText = document.getElementById('handshake-text');
+    const logs = [
+        'ESTABLISHING RSA-4096 TUNNEL...',
+        'ENCRYPTING PACKETS VIA AES-256...',
+        'BYPASSING ISP MONITORING... SUCCESS',
+        'NODE_ROTATION: ACTIVE [GERMANY -> SINGAPORE]',
+        'CONNECTION STATUS: HIGHLY SECURE',
+        'CLEANING SESSION TRACKERS...'
+    ];
+    let i = 0;
+    setInterval(() => {
+        statusText.innerText = '> ' + logs[i];
+        i = (i + 1) % logs.length;
+    }, 4000);
 </script>
 </body>
 </html>
