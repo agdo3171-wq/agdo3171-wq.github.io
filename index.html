@@ -30,6 +30,17 @@
 <canvas id="cmatrix"></canvas>
 
 <div class="main-frame" id="main-content">
+
+    <div style='position:absolute; top:10px; left:10px; font-size:0.6rem; text-align:left; background:rgba(0,0,0,0.5); padding:5px; border:1px solid #0f0; border-radius:3px; z-index:10; direction:ltr;'>
+        <div style='display:flex; align-items:center;'><span style='height:8px; width:8px; background:#0f0; border-radius:50%; display:inline-block; margin-right:5px; box-shadow:0 0 5px #0f0;'></span> VPN: ACTIVE</div>
+        <div style='display:flex; align-items:center; margin-top:3px;'><span style='height:8px; width:8px; background:#0f0; border-radius:50%; display:inline-block; margin-right:5px; box-shadow:0 0 5px #0f0;'></span> SSL: SECURE</div>
+        <div style='display:flex; align-items:center; margin-top:3px;'><span id='db-blink' style='height:8px; width:8px; background:#0f0; border-radius:50%; display:inline-block; margin-right:5px;'></span> DB: ONLINE</div>
+    </div>
+    <style>
+        #db-blink { animation: blink 1s infinite; }
+        @keyframes blink { 0% { opacity: 1; box-shadow:0 0 5px #0f0; } 50% { opacity: 0.3; } 100% { opacity: 1; box-shadow:0 0 5px #0f0; } }
+    </style>
+
     <div class="header">
         <h1>[ SYSTEM_ENCRYPTED_V4 ]</h1>
         <p style="font-size:0.8rem; color:red;">● الحالة: تم اختراق التشفير.. دخول الإدارة متاح</p>
