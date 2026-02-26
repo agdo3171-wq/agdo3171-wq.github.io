@@ -63,7 +63,11 @@
 
     <div style="text-align:center; font-size:0.6rem; color:#444; margin-top:15px;">
         IP_LOGGED: 192.168.1.XX | SESSION_ID: QWERT-9921
+    
+    <div id="system-logs" style="margin-top:15px; background:rgba(0,20,0,0.9); border:1px solid #0f0; padding:8px; font-family:monospace; font-size:0.65rem; height:60px; overflow:hidden; direction:ltr; text-align:left;">
+        <div id="log-container"></div>
     </div>
+</div>
 </div>
 
 <script>
@@ -117,5 +121,30 @@
     setInterval(draw, 35);
 </script>
 
+
+<script>
+    const logContainer = document.getElementById('log-container');
+    const logMessages = [
+        "[OK] Connection established with Proxy #992",
+        "[INFO] Encrypting Bitcoin transaction... 88%",
+        "[SUCCESS] Account secured for Client_881",
+        "[RUNNING] Vulnerability scan on server_alpha",
+        "[OK] Windows 10 Pro license generated",
+        "[INFO] Cleaning malware from remote device...",
+        "[SUCCESS] Anti-extortion shield active"
+    ];
+
+    function addLog() {
+        const msg = logMessages[Math.floor(Math.random() * logMessages.length)];
+        const p = document.createElement('div');
+        p.style.color = "#0f0";
+        p.innerText = "> " + msg;
+        logContainer.prepend(p);
+        if (logContainer.children.length > 4) {
+            logContainer.removeChild(logContainer.lastChild);
+        }
+    }
+    setInterval(addLog, 3000);
+</script>
 </body>
 </html>
