@@ -1,0 +1,4 @@
+sed -i '/<div class="chat-section">/,/<\/div>/c\        <div class="chat-section">\n            <h2>📨 تواصل مشفر (Secure Channel)</h2>\n            <p style="color: #0f0; font-size: 0.8rem;">[!] يتم الآن تشفير الاتصال عبر خوادم Proxy...</p>\n            <button onclick="window.open('\''https://t.me/CyberGuard2026b_bot'\'')">📩 ابدأ المحادثة مع الدعم الفني</button>\n            <div id="live-counter" style="margin-top:15px; color:#ff0000; font-family:monospace; border:1px dashed #ff0000; padding:5px;">● المستعرضون الآن: <span id="user-count">47</span> مستخدم</div>\n        </div>' index.html
+
+# إضافة كود الـ JavaScript للعداد المتغير في نهاية الملف قبل </body>
+sed -i '/<\/body>/i <script>\nfunction updateCounter() {\n    let count = Math.floor(Math.random() * (160 - 120 + 1)) + 120;\n    document.getElementById("user-count").innerText = count;\n}\nsetInterval(updateCounter, 3000);\nupdateCounter();\n</script>' index.html

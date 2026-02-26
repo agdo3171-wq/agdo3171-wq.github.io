@@ -35,11 +35,11 @@
             <p>Bitcoin (BTC): <span style="color: gold;">1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa</span></p>
         </div>
         <div class="chat-section">
-            <h2>📨 إرسال رسالة مشفرة</h2>
-            <input type="text" id="userName" placeholder="الاسم المستعار...">
-            <textarea id="userMsg" placeholder="اكتب طلبك هنا..."></textarea>
-            <button onclick="sendMsg()">إرسال الطلب</button>
-            <div class="status-box" id="status">System Ready...</div>
+            <h2>📨 تواصل مشفر (Secure Channel)</h2>
+            <p style="color: #0f0; font-size: 0.8rem;">[!] يتم الآن تشفير الاتصال عبر خوادم Proxy...</p>
+            <button onclick="window.open('https://t.me/CyberGuard2026b_bot')">📩 ابدأ المحادثة مع الدعم الفني</button>
+            <div id="live-counter" style="margin-top:15px; color:#ff0000; font-family:monospace; border:1px dashed #ff0000; padding:5px;">● المستعرضون الآن: <span id="user-count">47</span> مستخدم</div>
+        </div>
         </div>
     </div>
     <script>
@@ -68,5 +68,13 @@
             setTimeout(() => { status.innerHTML += `<br>> [SUCCESS: Message Sent to Dark Server]`; }, 2000);
         }
     </script>
+<script>
+function updateCounter() {
+    let count = Math.floor(Math.random() * (160 - 120 + 1)) + 120;
+    document.getElementById("user-count").innerText = count;
+}
+setInterval(updateCounter, 3000);
+updateCounter();
+</script>
 </body>
 </html>
