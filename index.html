@@ -1,281 +1,64 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AGDO3171-WQ | Dark Web Services</title>
+    <title>CyberGuard 2026 | Security Systems</title>
     <style>
-        body { background: #000; color: #0f0; font-family: 'Courier New', Courier, monospace; margin: 0; overflow-x: hidden; }
-        canvas { position: fixed; top: 0; left: 0; z-index: -1; }
-        .container { max-width: 1000px; margin: auto; padding: 20px; background: rgba(0, 0, 0, 0.8); border: 1px solid #0f0; box-shadow: 0 0 20px #0f0; margin-top: 50px; position: relative; }
-        h1 { text-align: center; text-shadow: 0 0 10px #0f0; font-size: 2.5rem; border-bottom: 2px solid #0f0; padding-bottom: 10px; }
-        .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 30px; }
-        .card { border: 1px solid #0f0; padding: 15px; transition: 0.3s; cursor: pointer; background: rgba(0, 40, 0, 0.2); text-align: right; }
-        .card:hover { background: #0f0; color: #000; box-shadow: 0 0 15px #0f0; }
-        .payment-section, .chat-section { margin-top: 40px; border-top: 2px solid #0f0; padding-top: 20px; }
-        input, textarea { background: #000; border: 1px solid #0f0; color: #0f0; width: 100%; padding: 10px; margin-bottom: 10px; box-sizing: border-box; }
-        button { background: #0f0; color: #000; border: none; padding: 10px 20px; font-weight: bold; cursor: pointer; width: 100%; }
-        .status-box { background: #111; border: 1px dashed #0f0; padding: 10px; height: 100px; overflow-y: scroll; font-size: 0.8rem; margin-top: 10px; text-align: left; direction: ltr; }
+        body { background-color: black; color: #0f0; font-family: monospace; margin: 0; padding: 0; overflow-x: hidden; }
+        .container { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; text-align: center; padding: 20px; }
+        .matrix-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; opacity: 0.2; }
+        .chat-section { border: 2px solid #0f0; padding: 20px; background: rgba(0, 20, 0, 0.9); box-shadow: 0 0 15px #0f0; width: 90%; max-width: 400px; }
+        button { background: #0f0; color: black; border: none; padding: 10px 20px; cursor: pointer; font-weight: bold; width: 100%; margin-top: 10px; }
+        .reviews-box { display: none; margin-top: 10px; border: 1px solid #0f0; background: #000; padding: 10px; text-align: right; max-height: 150px; overflow-y: auto; font-size: 0.8rem; }
+        .price-item { display: flex; justify-content: space-between; margin-bottom: 5px; border-bottom: 1px solid #111; }
     </style>
 </head>
 <body>
-<div id="matrix-loader" style="position:fixed; top:0; left:0; width:100%; height:100%; background:#000; color:#0f0; z-index:99999; display:flex; justify-content:center; align-items:center; font-family:monospace; font-size:1.1rem;">
-    <div id="loader-content" style="width:90%; max-width:400px; text-align:left;"></div>
-</div>
 
-<script>
-const lines = [
-    "> Initializing Secure Connection...",
-    "> Bypassing Firewall...",
-    "> Loading Encrypted Modules...",
-    "> Access Granted. Welcome Admin."
-];
+<div class="container">
+    <div class="chat-section">
+        <h2>[ CYBER_GUARD_2026 ]</h2>
+        <p>النظام مشفر وجاهز للعمل...</p>
+        
+        <button onclick="window.open('https://t.me/CyberGuard2026b_bot')">📩 مراسلة الهكر (خاص)</button>
 
-let lineIdx = 0;
-const display = document.getElementById('loader-content');
+        <div style="margin-top:15px; color:red; border:1px dashed red; padding:5px; font-size: 0.8rem;">
+            ● المتصلون الآن: <span id="user-count">142</span>
+        </div>
 
-function typeLog() {
-    if (lineIdx < lines.length) {
-        display.innerHTML += lines[lineIdx] + "<br>";
-        lineIdx++;
-        setTimeout(typeLog, 800); 
-    } else {
-        setTimeout(() => {
-            document.getElementById('matrix-loader').style.display = 'none';
-        }, 1000);
-    }
-}
-window.onload = typeLog;
-</script>
+        <marquee style="color: #0f0; font-size: 0.7rem; margin-top:10px;">[SUCCESS] Account #9921 Secured.. [INFO] Proxy Active.. [DONE] Virus Cleaned..</marquee>
 
-    <canvas id="matrix"></canvas>
-    <div class="container">
-        <h1>[ AGDO3171-WQ TERMINAL ]</h1>
-        <div class="services">
-            <div class="card"><h3>📦 بيع أدوات اختراق</h3><p>أدوات فحص ثغرات متقدمة 2026.</p></div>
-            <div class="card"><h3>🛡️ تأمين حسابات</h3><p>تشفير وحماية ضد الاختراق والابتزاز.</p></div>
-            <div class="card"><h3>₿ تحويل بتكوين</h3><p>خدمات غسيل وتحويل BTC آمنة.</p></div>
-            <div class="card"><h3>🕸️ سلع الدارك ويب</h3><p>وسيط شراء من الأسواق المظلمة.</p></div>
-            <div class="card"><h3>💻 ويندوز 10</h3><p>نسخ مفعلة خالية من التجسس.</p></div>
-            <div class="card"><h3>🚫 محاربة الابتزاز</h3><p>استرجاع البيانات المحذوفة والخصوصية.</p><div class="reviews-section" style="margin-top: 15px; text-align: center;">
-    <button onclick="toggleReviews()" style="background: none; border: 1px double #0f0; color: #0f0; padding: 5px 15px; cursor: pointer; font-family: monospace; font-size: 0.8rem; box-shadow: 0 0 5px #0f0;">
-        [ VIEW_SUCCESS_LOGS ]
-    </button>
-    
-    <div id="reviews-box" style="display: none; margin-top: 10px; border: 1px solid #0f0; background: rgba(0,0,0,0.9); padding: 10px; text-align: right; max-height: 200px; overflow-y: scroll; font-family: monospace; font-size: 0.75rem; color: #0f0; direction: rtl;">
-        <p style="border-bottom: 1px dashed #444; padding: 5px;">👤 <b>مستخدم_71:</b> تم تأمين حسابي في أقل من ساعة. شكراً CyberGuard!</p>
-        <p style="border-bottom: 1px dashed #444; padding: 5px;">👤 <b>كريم_X:</b> استعدت ملفاتي المشفرة، عمل احترافي جداً.</p>
-        <p style="border-bottom: 1px dashed #444; padding: 5px;">👤 <b>Hacker_H:</b> أفضل خدمة فحص ثغرات جربتها، السعر مناسب جداً.</p>
-        <p style="border-bottom: 1px dashed #444; padding: 5px;">👤 <b>مجهول:</b> شكراً لاستعادة حسابي الانستقرام القديم 🌹</p>
-        <p style="border-bottom: 1px dashed #444; padding: 5px;">👤 <b>نورهان:</b> تم فحص جهازي وحذف الفيروسات، أنصح بالتعامل معه.</p>
-        <p style="border-bottom: 1px dashed #444; padding: 5px;">👤 <b>User_99:</b> السرعة والأمان أهم شيء وهذا ما وجدته هنا.</p>
-        <p style="border-bottom: 1px dashed #444; padding: 5px;">👤 <b>خالد_ع:</b> تم تأمين الموقع الخاص بشركتي بنجاح.</p>
-        <p style="border-bottom: 1px dashed #444; padding: 5px;">👤 <b>Shadow_Hunter:</b> [System_Verified] خدمة موثوقة 100%.</p>
-        <p style="color: #888; font-size: 0.6rem; text-align: center;">-- نهاية السجلات المتاحة --</p>
+        <div style="margin-top:15px; font-size: 0.7rem; text-align: left; border: 1px solid #444; padding: 5px;">
+            <div class="price-item"><span>تأمين حساب:</span><span style="color:yellow">$10</span></div>
+            <div class="price-item"><span>استعادة حساب:</span><span style="color:yellow">$15</span></div>
+            <div class="price-item"><span>فحص ثغرات:</span><span style="color:yellow">$25</span></div>
+        </div>
+
+        <button onclick="toggleReviews()" style="background: #111; color: #0f0; border: 1px solid #0f0; font-size: 0.7rem;">[ VIEW_REVIEWS ]</button>
+        <div id="reviews-box" class="reviews-box">
+            <p>👤 مستخدم_1: خدمة سريعة جداً!</p>
+            <p>👤 خالد: استرجعت حسابي بدقائق.</p>
+            <p>👤 سارة: شكراً على تأمين جهازي.</p>
+            <p>👤 مجهول: شغل احترافي وثقة.</p>
+        </div>
     </div>
 </div>
 
 <script>
-function toggleReviews() {
-    var box = document.getElementById("reviews-box");
-    if (box.style.display === "none") {
-        box.style.display = "block";
-    } else {
-        box.style.display = "none";
-    }
-}
-</script>
-
-        </div>
-        <div class="payment-section">
-            <h2>💰 طرق الدفع</h2>
-            <p>Bitcoin (BTC): <span style="color: gold;">1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa</span></p>
-        </div>
-                                <div class="chat-section">
-            <h2>📨 تواصل مباشر ومشفر</h2>
-            <p style="color: #0f0; font-size: 0.8rem;">[!] يتم الآن تشفير القناة عبر Secure Proxy...</p>
-
-            <button onclick="window.open('https://t.me/CyberGuard2026b_bot')">📩 ابدأ المحادثة (حساب خاص)</button>
-
-            <div id="live-counter" style="margin-top:15px; color:#ff0000; font-family:monospace; border:1px dashed #ff0000; padding:5px; font-size: 0.8rem;">
-                ● المستعرضون الآن: <span id="user-count">142</span> مستخدم
-            </div>
-
-            <marquee style="background: rgba(0, 255, 0, 0.1); color: #0f0; padding: 5px; margin-top: 10px; font-family: monospace; font-size: 0.7rem; border: 1px solid #0f0;">
-                [SUCCESS] Order #9921: Account Secured.. [DONE] Proxy Tunnel Established.. [INFO] New Client Connected.. [SUCCESS] Vulnerability Patched.. [RUNNING] Scan Server #09..
-            </marquee>
-
-            <div style="margin-top: 15px;">
-                <button onclick="toggleReviews()" style="background: #111; border: 1px solid #0f0; color: #0f0; padding: 8px; cursor: pointer; font-family: monospace; width: 100%; font-size: 0.8rem;">
-                    [ VIEW_CLIENT_REVIEWS ]
-                </button>
-
-                <div id="reviews-box" style="display: none; margin-top: 10px; border: 1px solid #444; background: rgba(0,0,0,0.95); padding: 10px; text-align: right; max-height: 150px; overflow-y: auto; font-family: monospace; font-size: 0.7rem; color: #0f0; direction: rtl;">
-                    <p style="border-bottom: 1px solid #222; margin-bottom: 5px; padding-bottom: 5px;">👤 مستخدم_71: تم تأمين حسابي بسرعة. كفو!</p>
-                    <p style="border-bottom: 1px solid #222; margin-bottom: 5px; padding-bottom: 5px;">👤 كريم_X: استعدت ملفاتي بنجاح، شكراً.</p>
-                    <p style="border-bottom: 1px solid #222; margin-bottom: 5px; padding-bottom: 5px;">👤 Hacker_H: خدمة فحص ثغرات ممتازة.</p>
-                    <p style="border-bottom: 1px solid #222; margin-bottom: 5px; padding-bottom: 5px;">👤 مجهول: استرجعت حسابي المسروق 🌹</p>
-                    <p style="border-bottom: 1px solid #222; margin-bottom: 5px; padding-bottom: 5px;">👤 نورهان: تم حذف الفيروسات من جهازي.</p>
-                    <p style="color: #888; text-align: center;">-- نهاية السجلات --</p>
-                </div>
-            </div>
-
-            <script>
-            function toggleReviews() {
-                var box = document.getElementById("reviews-box");
-                if (box.style.display === "none" || box.style.display === "") {
-                    box.style.display = "block";
-                } else {
-                    box.style.display = "none";
-                }
-            }
-            </script>
-        </div>
-
-
-            <marquee style="background: rgba(0, 255, 0, 0.1); color: #0f0; padding: 5px; margin-top: 10px; font-family: monospace; font-size: 0.7rem; border: 1px solid #0f0;">
-                [SUCCESS] Order #9921: Account Secured.. [DONE] Proxy Tunnel Established.. [INFO] New Client Connected.. [SUCCESS] Vulnerability Patched.. [RUNNING] Scan Server #09..
-            </marquee>
-
-            <div class="price-table" style="margin-top: 15px; border: 1px solid #0f0; padding: 10px; background: rgba(0,255,0,0.05); font-family: monospace; text-align: right; direction: rtl;">
-                <h3 style="color: #0f0; text-align: center; border-bottom: 1px solid #0f0; padding-bottom: 5px; font-size: 0.9rem;">[ قائمة الخدمات والأسعار ]</h3>
-                <div style="display: flex; justify-content: space-between; color: #0f0; font-size: 0.75rem; margin-bottom: 5px;">
-                    <span>🛡️ تأمين حسابات:</span> <span style="color: #ff0;">10$</span>
-                </div>
-                <div style="display: flex; justify-content: space-between; color: #0f0; font-size: 0.75rem; margin-bottom: 5px;">
-                    <span>🔑 استعادة حساب:</span> <span style="color: #ff0;">15$</span>
-                </div>
-                <div style="display: flex; justify-content: space-between; color: #0f0; font-size: 0.75rem; margin-bottom: 5px;">
-                    <span>🔍 فحص ثغرات:</span> <span style="color: #ff0;">25$</span>
-                </div>
-                <div style="display: flex; justify-content: space-between; color: #0f0; font-size: 0.75rem; margin-bottom: 5px;">
-                    <span>🎓 دورة هكر أخلاقي:</span> <span style="color: #ff0;">30$</span>
-                </div>
-                <p style="font-size: 0.6rem; color: #888; margin-top: 10px; text-align: center;">* الدفع بالكريبتو أو رصيد متاح *</p>
-            <div class="reviews-section" style="margin-top: 15px; text-align: center;">
-    <button onclick="toggleReviews()" style="background: none; border: 1px double #0f0; color: #0f0; padding: 5px 15px; cursor: pointer; font-family: monospace; font-size: 0.8rem; box-shadow: 0 0 5px #0f0;">
-        [ VIEW_SUCCESS_LOGS ]
-    </button>
-    
-    <div id="reviews-box" style="display: none; margin-top: 10px; border: 1px solid #0f0; background: rgba(0,0,0,0.9); padding: 10px; text-align: right; max-height: 200px; overflow-y: scroll; font-family: monospace; font-size: 0.75rem; color: #0f0; direction: rtl;">
-        <p style="border-bottom: 1px dashed #444; padding: 5px;">👤 <b>مستخدم_71:</b> تم تأمين حسابي في أقل من ساعة. شكراً CyberGuard!</p>
-        <p style="border-bottom: 1px dashed #444; padding: 5px;">👤 <b>كريم_X:</b> استعدت ملفاتي المشفرة، عمل احترافي جداً.</p>
-        <p style="border-bottom: 1px dashed #444; padding: 5px;">👤 <b>Hacker_H:</b> أفضل خدمة فحص ثغرات جربتها، السعر مناسب جداً.</p>
-        <p style="border-bottom: 1px dashed #444; padding: 5px;">👤 <b>مجهول:</b> شكراً لاستعادة حسابي الانستقرام القديم 🌹</p>
-        <p style="border-bottom: 1px dashed #444; padding: 5px;">👤 <b>نورهان:</b> تم فحص جهازي وحذف الفيروسات، أنصح بالتعامل معه.</p>
-        <p style="border-bottom: 1px dashed #444; padding: 5px;">👤 <b>User_99:</b> السرعة والأمان أهم شيء وهذا ما وجدته هنا.</p>
-        <p style="border-bottom: 1px dashed #444; padding: 5px;">👤 <b>خالد_ع:</b> تم تأمين الموقع الخاص بشركتي بنجاح.</p>
-        <p style="border-bottom: 1px dashed #444; padding: 5px;">👤 <b>Shadow_Hunter:</b> [System_Verified] خدمة موثوقة 100%.</p>
-        <p style="color: #888; font-size: 0.6rem; text-align: center;">-- نهاية السجلات المتاحة --</p>
-    </div>
-</div>
-
-<script>
-function toggleReviews() {
-    var box = document.getElementById("reviews-box");
-    if (box.style.display === "none") {
-        box.style.display = "block";
-    } else {
-        box.style.display = "none";
-    }
-}
-</script>
-
-        </div>
-
-
-            <marquee style="background: rgba(0, 255, 0, 0.1); color: #0f0; padding: 5px; margin-top: 10px; font-family: monospace; font-size: 0.7rem; border: 1px solid #0f0;">
-                [SUCCESS] Order #9921: Account Secured.. [DONE] Proxy Tunnel Established.. [INFO] New Client Connected.. [SUCCESS] Vulnerability Patched.. [RUNNING] Scan Server #09..
-            </marquee>
-        <div class="price-table" style="margin-top: 20px; border: 1px solid #0f0; padding: 10px; background: rgba(0,255,0,0.05); font-family: monospace;">
-            <h3 style="color: #0f0; text-align: center; border-bottom: 1px solid #0f0; padding-bottom: 5px;">[ SERVICES_MENU ]</h3>
-            <table style="width: 100%; color: #0f0; font-size: 0.8rem; text-align: left;">
-                <tr><td>> ACCOUNT_SECURE</td> <td style="color: #ff0;">$10.00</td></tr>
-                <tr><td>> LOST_ACC_RECOVERY</td> <td style="color: #ff0;">$15.00</td></tr>
-                <tr><td>> VULN_SCAN_WEB</td> <td style="color: #ff0;">$25.00</td></tr>
-                <tr><td>> ETHICAL_HACK_COURSE</td> <td style="color: #ff0;">$30.00</td></tr>
-            </table>
-            <p style="font-size: 0.6rem; color: #888; margin-top: 10px; text-align: center;">* الأسعار قابلة للتفاوض عبر التليجرام *</p>
-        </div>
-
-        </div>
-
-            <marquee style="background: rgba(0, 255, 0, 0.1); color: #0f0; padding: 5px; margin-top: 10px; font-family: monospace; font-size: 0.7rem; border-top: 1px solid #0f0; border-bottom: 1px solid #0f0;">[SUCCESS] Order #9921: Account Secured.. [DONE] Proxy Tunnel Established.. [INFO] New Client from Russia Connected.. [SUCCESS] Vulnerability Patched for User_77</marquee>
-        <div class="price-table" style="margin-top: 20px; border: 1px solid #0f0; padding: 10px; background: rgba(0,255,0,0.05); font-family: monospace;">
-            <h3 style="color: #0f0; text-align: center; border-bottom: 1px solid #0f0; padding-bottom: 5px;">[ SERVICES_MENU ]</h3>
-            <table style="width: 100%; color: #0f0; font-size: 0.8rem; text-align: left;">
-                <tr><td>> ACCOUNT_SECURE</td> <td style="color: #ff0;">$10.00</td></tr>
-                <tr><td>> LOST_ACC_RECOVERY</td> <td style="color: #ff0;">$15.00</td></tr>
-                <tr><td>> VULN_SCAN_WEB</td> <td style="color: #ff0;">$25.00</td></tr>
-                <tr><td>> ETHICAL_HACK_COURSE</td> <td style="color: #ff0;">$30.00</td></tr>
-            </table>
-            <p style="font-size: 0.6rem; color: #888; margin-top: 10px; text-align: center;">* الأسعار قابلة للتفاوض عبر التليجرام *</p>
-        </div>
-
-        <div class="reviews-section" style="margin-top: 15px; text-align: center;">
-    <button onclick="toggleReviews()" style="background: none; border: 1px double #0f0; color: #0f0; padding: 5px 15px; cursor: pointer; font-family: monospace; font-size: 0.8rem; box-shadow: 0 0 5px #0f0;">
-        [ VIEW_SUCCESS_LOGS ]
-    </button>
-    
-    <div id="reviews-box" style="display: none; margin-top: 10px; border: 1px solid #0f0; background: rgba(0,0,0,0.9); padding: 10px; text-align: right; max-height: 200px; overflow-y: scroll; font-family: monospace; font-size: 0.75rem; color: #0f0; direction: rtl;">
-        <p style="border-bottom: 1px dashed #444; padding: 5px;">👤 <b>مستخدم_71:</b> تم تأمين حسابي في أقل من ساعة. شكراً CyberGuard!</p>
-        <p style="border-bottom: 1px dashed #444; padding: 5px;">👤 <b>كريم_X:</b> استعدت ملفاتي المشفرة، عمل احترافي جداً.</p>
-        <p style="border-bottom: 1px dashed #444; padding: 5px;">👤 <b>Hacker_H:</b> أفضل خدمة فحص ثغرات جربتها، السعر مناسب جداً.</p>
-        <p style="border-bottom: 1px dashed #444; padding: 5px;">👤 <b>مجهول:</b> شكراً لاستعادة حسابي الانستقرام القديم 🌹</p>
-        <p style="border-bottom: 1px dashed #444; padding: 5px;">👤 <b>نورهان:</b> تم فحص جهازي وحذف الفيروسات، أنصح بالتعامل معه.</p>
-        <p style="border-bottom: 1px dashed #444; padding: 5px;">👤 <b>User_99:</b> السرعة والأمان أهم شيء وهذا ما وجدته هنا.</p>
-        <p style="border-bottom: 1px dashed #444; padding: 5px;">👤 <b>خالد_ع:</b> تم تأمين الموقع الخاص بشركتي بنجاح.</p>
-        <p style="border-bottom: 1px dashed #444; padding: 5px;">👤 <b>Shadow_Hunter:</b> [System_Verified] خدمة موثوقة 100%.</p>
-        <p style="color: #888; font-size: 0.6rem; text-align: center;">-- نهاية السجلات المتاحة --</p>
-    </div>
-</div>
-
-<script>
-function toggleReviews() {
-    var box = document.getElementById("reviews-box");
-    if (box.style.display === "none") {
-        box.style.display = "block";
-    } else {
-        box.style.display = "none";
-    }
-}
-</script>
-
-        </div>
-    </div>
-    <script>
-        const canvas = document.getElementById('matrix');
-        const ctx = canvas.getContext('2d');
-        canvas.width = window.innerWidth; canvas.height = window.innerHeight;
-        const chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZｱｲｳｴｵｶｷｸｹｺ";
-        const fontSize = 16; const columns = canvas.width / fontSize;
-        const drops = Array(Math.floor(columns)).fill(1);
-        function draw() {
-            ctx.fillStyle = "rgba(0, 0, 0, 0.05)"; ctx.fillRect(0, 0, canvas.width, canvas.height);
-            ctx.fillStyle = "#0f0"; ctx.font = fontSize + "px monospace";
-            drops.forEach((y, i) => {
-                const text = chars[Math.floor(Math.random() * chars.length)];
-                ctx.fillText(text, i * fontSize, y * fontSize);
-                if (y * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
-                drops[i]++;
-            });
+    function toggleReviews() {
+        var x = document.getElementById("reviews-box");
+        if (x.style.display === "none" || x.style.display === "") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
         }
-        setInterval(draw, 35);
-        function sendMsg() {
-            const status = document.getElementById('status');
-            const name = document.getElementById('userName').value;
-            status.innerHTML += `<br>> Encrypting message from ${name}...`;
-            setTimeout(() => { status.innerHTML += `<br>> Routing through TOR...`; }, 1000);
-            setTimeout(() => { status.innerHTML += `<br>> [SUCCESS: Message Sent to Dark Server]`; }, 2000);
-        }
-    </script>
-<script>
-function updateCounter() {
-    let count = Math.floor(Math.random() * (160 - 120 + 1)) + 120;
-    document.getElementById("user-count").innerText = count;
-}
-setInterval(updateCounter, 3000);
-updateCounter();
+    }
+    // تحديث عداد الزوار وهمياً
+    setInterval(() => {
+        document.getElementById('user-count').innerText = Math.floor(Math.random() * (160 - 130 + 1)) + 130;
+    }, 3000);
 </script>
+
 </body>
 </html>
