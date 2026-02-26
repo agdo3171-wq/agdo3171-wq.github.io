@@ -222,5 +222,25 @@
             <span style='color:#0f0; font-family:monospace; font-size:0.6rem; font-weight:bold;'>VERIFIED_PROVIDER_2026</span>
         </div>
     </div>
+
+<script id='cyberAudio'>
+    const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    function playCyberBeep() {
+        if (audioCtx.state === 'suspended') { audioCtx.resume(); }
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = 'square'; 
+        osc.frequency.setValueAtTime(440, audioCtx.currentTime); 
+        gain.gain.setValueAtTime(0.1, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.00001, audioCtx.currentTime + 0.2);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start();
+        osc.stop(audioCtx.currentTime + 0.2);
+    }
+    document.querySelectorAll('button').forEach(btn => {
+        btn.addEventListener('click', playCyberBeep);
+    });
+</script>
 </body>
 </html>
