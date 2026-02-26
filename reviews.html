@@ -1,0 +1,28 @@
+<div class="reviews-section" style="margin-top: 15px; text-align: center;">
+    <button onclick="toggleReviews()" style="background: none; border: 1px double #0f0; color: #0f0; padding: 5px 15px; cursor: pointer; font-family: monospace; font-size: 0.8rem; box-shadow: 0 0 5px #0f0;">
+        [ VIEW_SUCCESS_LOGS ]
+    </button>
+    
+    <div id="reviews-box" style="display: none; margin-top: 10px; border: 1px solid #0f0; background: rgba(0,0,0,0.9); padding: 10px; text-align: right; max-height: 200px; overflow-y: scroll; font-family: monospace; font-size: 0.75rem; color: #0f0; direction: rtl;">
+        <p style="border-bottom: 1px dashed #444; padding: 5px;">👤 <b>مستخدم_71:</b> تم تأمين حسابي في أقل من ساعة. شكراً CyberGuard!</p>
+        <p style="border-bottom: 1px dashed #444; padding: 5px;">👤 <b>كريم_X:</b> استعدت ملفاتي المشفرة، عمل احترافي جداً.</p>
+        <p style="border-bottom: 1px dashed #444; padding: 5px;">👤 <b>Hacker_H:</b> أفضل خدمة فحص ثغرات جربتها، السعر مناسب جداً.</p>
+        <p style="border-bottom: 1px dashed #444; padding: 5px;">👤 <b>مجهول:</b> شكراً لاستعادة حسابي الانستقرام القديم 🌹</p>
+        <p style="border-bottom: 1px dashed #444; padding: 5px;">👤 <b>نورهان:</b> تم فحص جهازي وحذف الفيروسات، أنصح بالتعامل معه.</p>
+        <p style="border-bottom: 1px dashed #444; padding: 5px;">👤 <b>User_99:</b> السرعة والأمان أهم شيء وهذا ما وجدته هنا.</p>
+        <p style="border-bottom: 1px dashed #444; padding: 5px;">👤 <b>خالد_ع:</b> تم تأمين الموقع الخاص بشركتي بنجاح.</p>
+        <p style="border-bottom: 1px dashed #444; padding: 5px;">👤 <b>Shadow_Hunter:</b> [System_Verified] خدمة موثوقة 100%.</p>
+        <p style="color: #888; font-size: 0.6rem; text-align: center;">-- نهاية السجلات المتاحة --</p>
+    </div>
+</div>
+
+<script>
+function toggleReviews() {
+    var box = document.getElementById("reviews-box");
+    if (box.style.display === "none") {
+        box.style.display = "block";
+    } else {
+        box.style.display = "none";
+    }
+}
+</script>
