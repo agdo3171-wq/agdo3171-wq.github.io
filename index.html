@@ -3,64 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CYBER_GUARD_STORE | المتجر السري</title>
+    <title>TERMINAL_ACCESS | CyberGuard 2026</title>
     <style>
         body { background: #000; color: #0f0; font-family: 'Courier New', monospace; margin: 0; overflow-x: hidden; direction: rtl; }
         canvas { position: fixed; top: 0; left: 0; z-index: -1; }
-        .main-frame { border: 2px solid #0f0; margin: 10px; padding: 15px; background: rgba(0,0,0,0.85); box-shadow: 0 0 20px #0f0; position: relative; z-index: 1; }
+        
+        /* شاشة التحميل المشوقة */
+        #loader { position:fixed; top:0; left:0; width:100%; height:100%; background:#000; color:#0f0; z-index:10000; display:flex; justify-content:center; align-items:center; flex-direction:column; padding:20px; text-align:left; }
+        
+        .main-frame { border: 2px solid #0f0; margin: 15px; padding: 20px; background: rgba(0,0,0,0.9); box-shadow: 0 0 20px #0f0; position: relative; z-index: 1; display:none; }
         .header { text-align: center; border-bottom: 2px solid #0f0; padding-bottom: 10px; margin-bottom: 20px; }
         .section-title { color: yellow; border-right: 4px solid #0f0; padding-right: 10px; margin-top: 20px; font-size: 1.1rem; background: rgba(0,255,0,0.1); }
-        .service-card { border: 1px solid #333; padding: 10px; margin: 8px 0; background: rgba(0,10,0,0.7); display: flex; justify-content: space-between; align-items: center; }
+        .service-card { border: 1px solid #333; padding: 10px; margin: 8px 0; background: rgba(0,20,0,0.8); display: flex; justify-content: space-between; align-items: center; }
         .price { color: #ff0; font-weight: bold; border: 1px solid #ff0; padding: 2px 5px; }
         button { background: #0f0; color: #000; border: none; padding: 12px; width: 100%; font-weight: bold; cursor: pointer; margin-top: 10px; font-family: monospace; }
-        .payment-methods { text-align: center; color: #00ffff; font-size: 0.9rem; margin-top: 10px; }
+        .payment-list { text-align: center; color: #00ffff; margin-top: 10px; font-size: 0.9rem; }
         textarea { background: #000; border: 1px solid #0f0; color: #0f0; width: 100%; padding: 10px; margin-top: 10px; box-sizing: border-box; }
-        .footer-info { font-size: 0.7rem; color: #666; text-align: center; margin-top: 20px; border-top: 1px solid #333; padding-top: 10px; }
     </style>
 </head>
 <body>
 
+<div id="loader">
+    <div id="loader-content" style="width:100%; max-width:400px; line-height:1.6;"></div>
+</div>
+
 <canvas id="cmatrix"></canvas>
 
-<div class="main-frame">
+<div class="main-frame" id="main-content">
     <div class="header">
-        <h1 style="margin:0;">[ CYBER_LOGIC_V3 ]</h1>
-        <p style="font-size:0.8rem;">نظام الخدمات المشفرة - الإصدار النهائي</p>
+        <h1>[ SYSTEM_ENCRYPTED_V4 ]</h1>
+        <p style="font-size:0.8rem; color:red;">● الحالة: تم اختراق التشفير.. دخول الإدارة متاح</p>
     </div>
 
     <div class="section-title">🛡️ خدمات التأمين والاستعادة</div>
-    <div class="service-card"><span>تأمين حسابات التواصل:</span> <span class="price">10$</span></div>
-    <div class="service-card"><span>استعادة حسابات مخترقة:</span> <span class="price">15$</span></div>
-    <div class="service-card"><span>فحص ثغرات المواقع:</span> <span class="price">25$</span></div>
-    <div class="service-card"><span>دورة الهكر الأخلاقي:</span> <span class="price">30$</span></div>
+    <div class="service-card"><span>تأمين حسابات (فوري):</span> <span class="price">10$</span></div>
+    <div class="service-card"><span>استعادة حساب مخترق:</span> <span class="price">15$</span></div>
+    <div class="service-card"><span>فحص ثغرات شامل:</span> <span class="price">25$</span></div>
+    <div class="service-card"><span>دورة هكر أخلاقي:</span> <span class="price">30$</span></div>
 
-    <div class="section-title">⚙️ أدوات وأنظمة</div>
-    <div class="service-card"><span>بيع أدوات اختراق خاصة:</span> <span class="price">50$</span></div>
-    <div class="service-card"><span>تنزيل ويندوز 10 برو (تنشيط):</span> <span class="price">10$</span></div>
-    <div class="service-card"><span>محاربة الابتزاز الإلكتروني:</span> <span class="price">مجاني 🆓</span></div>
+    <div class="section-title">⚙️ أدوات وأنظمة وبرمجيات</div>
+    <div class="service-card"><span>بيع أدوات اختراق (أصلية):</span> <span class="price">50$</span></div>
+    <div class="service-card"><span>تنزيل ويندوز 10 برو + تفعيل:</span> <span class="price">10$</span></div>
+    <div class="service-card"><span>محاربة الابتزاز (دعم فني):</span> <span class="price">مجاني 🆓</span></div>
 
-    <div class="section-title">🌐 العملات والدارك ويب</div>
+    <div class="section-title">🌐 الدارك ويب والعملات</div>
     <div class="service-card"><span>تحويل أموال إلى بتكوين (BTC):</span> <span class="price">عمولة 5%</span></div>
-    <div class="service-card"><span>وسيط شراء من الدارك ويب:</span> <span class="price">حسب السلعة</span></div>
+    <div class="service-card"><span>وسيط شراء من الدارك ويب:</span> <span class="price">حسب الطلب</span></div>
 
-    <div class="section-title">💳 طرق الدفع المتاحة</div>
-    <div class="payment-methods">
-        BTC | USDT | سوا | PayPal | زين كاش | فودافون كاش
+    <div class="section-title">💳 طرق الدفع المقبولة</div>
+    <div class="payment-list">
+        Bitcoin (BTC) | USDT | سوا | زين كاش | PayPal | فودافون كاش
     </div>
 
-    <div class="section-title">✉️ اترك ملاحظة أو طلب خاص</div>
-    <textarea id="userMsg" placeholder="اكتب تفاصيل طلبك هنا (سيتم تشفير الرسالة فور الإرسال)..."></textarea>
-    <button onclick="alert('Done: تم إرسال رسالتك عبر نفق مشفر!')">إرسال الطلب للنظام</button>
+    <div class="section-title">✉️ أرسل رسالة مشفرة للإدارة</div>
+    <textarea id="userMsg" placeholder="اكتب طلبك أو استفسارك هنا..."></textarea>
+    <button onclick="alert('Done: تم إرسال رسالتك عبر نفق مشفر!')">إرسال الطلب</button>
 
-    <button onclick="window.open('https://t.me/CyberGuard2026b_bot')" style="background: yellow;">📩 تواصل مباشر عبر تلجرام</button>
+    <button onclick="window.open('https://t.me/CyberGuard2026b_bot')" style="background: yellow;">📩 تواصل مباشر (Telegram)</button>
 
-    <div class="footer-info">
-        STATUS: ENCRYPTED | SERVER: HIDDEN | SESSION: ACTIVE
+    <div style="text-align:center; font-size:0.6rem; color:#444; margin-top:15px;">
+        IP_LOGGED: 192.168.1.XX | SESSION_ID: QWERT-9921
     </div>
 </div>
 
 <script>
-    // CMatrix Animation
+    // واجهة التحميل المشوقة
+    const logs = [
+        "> Initializing Secure Connection...",
+        "> Bypassing Global Firewall...",
+        "> Accessing Shadow Server...",
+        "> Decrypting Database...",
+        "> ACCESS GRANTED. WELCOME ADMIN."
+    ];
+    let lIdx = 0;
+    const loaderDisplay = document.getElementById('loader-content');
+    
+    function startLoading() {
+        if(lIdx < logs.length) {
+            loaderDisplay.innerHTML += logs[lIdx] + "<br>";
+            lIdx++;
+            setTimeout(startLoading, 700);
+        } else {
+            setTimeout(() => {
+                document.getElementById('loader').style.display = 'none';
+                document.getElementById('main-content').style.display = 'block';
+            }, 1000);
+        }
+    }
+    window.onload = startLoading;
+
+    // CMatrix Effect
     const canvas = document.getElementById('cmatrix');
     const ctx = canvas.getContext('2d');
     canvas.width = window.innerWidth;
