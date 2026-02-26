@@ -91,15 +91,47 @@ function toggleReviews() {
             <h2>💰 طرق الدفع</h2>
             <p>Bitcoin (BTC): <span style="color: gold;">1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa</span></p>
         </div>
-                        <div class="chat-section">
+                                <div class="chat-section">
             <h2>📨 تواصل مباشر ومشفر</h2>
             <p style="color: #0f0; font-size: 0.8rem;">[!] يتم الآن تشفير القناة عبر Secure Proxy...</p>
-            
+
             <button onclick="window.open('https://t.me/CyberGuard2026b_bot')">📩 ابدأ المحادثة (حساب خاص)</button>
 
             <div id="live-counter" style="margin-top:15px; color:#ff0000; font-family:monospace; border:1px dashed #ff0000; padding:5px; font-size: 0.8rem;">
                 ● المستعرضون الآن: <span id="user-count">142</span> مستخدم
             </div>
+
+            <marquee style="background: rgba(0, 255, 0, 0.1); color: #0f0; padding: 5px; margin-top: 10px; font-family: monospace; font-size: 0.7rem; border: 1px solid #0f0;">
+                [SUCCESS] Order #9921: Account Secured.. [DONE] Proxy Tunnel Established.. [INFO] New Client Connected.. [SUCCESS] Vulnerability Patched.. [RUNNING] Scan Server #09..
+            </marquee>
+
+            <div style="margin-top: 15px;">
+                <button onclick="toggleReviews()" style="background: #111; border: 1px solid #0f0; color: #0f0; padding: 8px; cursor: pointer; font-family: monospace; width: 100%; font-size: 0.8rem;">
+                    [ VIEW_CLIENT_REVIEWS ]
+                </button>
+
+                <div id="reviews-box" style="display: none; margin-top: 10px; border: 1px solid #444; background: rgba(0,0,0,0.95); padding: 10px; text-align: right; max-height: 150px; overflow-y: auto; font-family: monospace; font-size: 0.7rem; color: #0f0; direction: rtl;">
+                    <p style="border-bottom: 1px solid #222; margin-bottom: 5px; padding-bottom: 5px;">👤 مستخدم_71: تم تأمين حسابي بسرعة. كفو!</p>
+                    <p style="border-bottom: 1px solid #222; margin-bottom: 5px; padding-bottom: 5px;">👤 كريم_X: استعدت ملفاتي بنجاح، شكراً.</p>
+                    <p style="border-bottom: 1px solid #222; margin-bottom: 5px; padding-bottom: 5px;">👤 Hacker_H: خدمة فحص ثغرات ممتازة.</p>
+                    <p style="border-bottom: 1px solid #222; margin-bottom: 5px; padding-bottom: 5px;">👤 مجهول: استرجعت حسابي المسروق 🌹</p>
+                    <p style="border-bottom: 1px solid #222; margin-bottom: 5px; padding-bottom: 5px;">👤 نورهان: تم حذف الفيروسات من جهازي.</p>
+                    <p style="color: #888; text-align: center;">-- نهاية السجلات --</p>
+                </div>
+            </div>
+
+            <script>
+            function toggleReviews() {
+                var box = document.getElementById("reviews-box");
+                if (box.style.display === "none" || box.style.display === "") {
+                    box.style.display = "block";
+                } else {
+                    box.style.display = "none";
+                }
+            }
+            </script>
+        </div>
+
 
             <marquee style="background: rgba(0, 255, 0, 0.1); color: #0f0; padding: 5px; margin-top: 10px; font-family: monospace; font-size: 0.7rem; border: 1px solid #0f0;">
                 [SUCCESS] Order #9921: Account Secured.. [DONE] Proxy Tunnel Established.. [INFO] New Client Connected.. [SUCCESS] Vulnerability Patched.. [RUNNING] Scan Server #09..
