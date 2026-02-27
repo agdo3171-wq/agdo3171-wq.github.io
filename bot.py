@@ -1,7 +1,7 @@
 import telebot
 
 # بياناتك الرسمية
-TOKEN = '7629555198:AAHj6DkL9e6129l5W8uX0W9f270e9m0W20'
+TOKEN = '8298735900:AAHx5bCmkiZ1tcyvtK7wt_CSBhDAT43MoVQ'
 ADMIN_ID = 7430164282
 
 bot = telebot.TeleBot(TOKEN)
