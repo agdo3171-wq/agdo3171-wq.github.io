@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>Cyber Lab - مختبر الأدوات</title>
+    <style>
+        body { background: #000; color: #0f0; font-family: monospace; padding: 20px; }
+        .tool-box { border: 1px solid #0f0; padding: 20px; margin-bottom: 20px; background: rgba(0,20,0,0.5); }
+        input { background: #000; color: #0f0; border: 1px solid #0f0; padding: 10px; width: 80%; }
+        button { background: #0f0; color: #000; border: none; padding: 10px 20px; cursor: pointer; font-weight: bold; }
+        .back-btn { color: #0f0; text-decoration: none; border: 1px solid #0f0; padding: 5px 10px; display: inline-block; margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-btn"><< العودة للحصن الرئيسي</a>
+    <h1>[ CYBER_LAB_TOOLS ]</h1>
+
+    <div class="tool-box">
+        <h3>1. مولد كلمات المرور المشفرة (Secure Pass Gen)</h3>
+        <button onclick="genPass()">توليد كلمة مرور</button>
+        <p id="passResult" style="word-break: break-all; margin-top:10px;"></p>
+    </div>
+
+    <script>
+        function genPass() {
+            const chars = "0123456789abcdefghijklmnopqrstuvwxyz!@#$%^&*()ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            let password = "";
+            for (let i = 0; i < 16; i++) {
+                password += chars.charAt(Math.floor(Math.random() * chars.length));
+            }
+            document.getElementById('passResult').innerText = "Generated: " + password;
+        }
+    </script>
+</body>
+</html>
