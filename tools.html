@@ -2,34 +2,89 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <title>Cyber Lab - مختبر الأدوات</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Lab - المختبر المتقدم</title>
     <style>
-        body { background: #000; color: #0f0; font-family: monospace; padding: 20px; }
-        .tool-box { border: 1px solid #0f0; padding: 20px; margin-bottom: 20px; background: rgba(0,20,0,0.5); }
-        input { background: #000; color: #0f0; border: 1px solid #0f0; padding: 10px; width: 80%; }
-        button { background: #0f0; color: #000; border: none; padding: 10px 20px; cursor: pointer; font-weight: bold; }
-        .back-btn { color: #0f0; text-decoration: none; border: 1px solid #0f0; padding: 5px 10px; display: inline-block; margin-bottom: 20px; }
+        body { background: #000; color: #0f0; font-family: 'Courier New', monospace; padding: 20px; line-height: 1.6; }
+        .back-btn { color: #0f0; text-decoration: none; border: 1px solid #0f0; padding: 5px 15px; display: inline-block; margin-bottom: 20px; transition: 0.3s; }
+        .back-btn:hover { background: #0f0; color: #000; }
+        .tool-box { border: 1px solid #0f0; padding: 20px; margin-bottom: 30px; background: rgba(0,25,0,0.2); border-radius: 5px; }
+        h3 { border-bottom: 1px solid #0f0; padding-bottom: 10px; color: #fff; }
+        input, textarea { background: #000; color: #0f0; border: 1px solid #0f0; padding: 10px; width: 90%; margin-bottom: 10px; font-family: monospace; }
+        button { background: #0f0; color: #000; border: none; padding: 10px 20px; cursor: pointer; font-weight: bold; transition: 0.3s; }
+        button:hover { background: #0c0; box-shadow: 0 0 10px #0f0; }
+        .result { margin-top: 15px; padding: 10px; background: rgba(0,50,0,0.3); border-left: 3px solid #0f0; font-size: 0.9rem; min-height: 20px; }
     </style>
 </head>
 <body>
+
     <a href="index.html" class="back-btn"><< العودة للحصن الرئيسي</a>
-    <h1>[ CYBER_LAB_TOOLS ]</h1>
+    
+    <h1 style="text-align:center; text-shadow: 0 0 10px #0f0;">[ ADVANCED_CYBER_LAB ]</h1>
+    <p style="text-align:center; font-size: 0.8rem;">بيئة تجريبية لفحص وتوليد أدوات الحماية والتشفير</p>
 
     <div class="tool-box">
-        <h3>1. مولد كلمات المرور المشفرة (Secure Pass Gen)</h3>
-        <button onclick="genPass()">توليد كلمة مرور</button>
-        <p id="passResult" style="word-break: break-all; margin-top:10px;"></p>
+        <h3>1. Secure Password Generator (توليد كلمات مرور)</h3>
+        <button onclick="genPass()">توليد كلمة مرور قوية</button>
+        <div id="passResult" class="result"></div>
+    </div>
+
+    <div class="tool-box">
+        <h3>2. Password Strength Analyzer (فحص القوة)</h3>
+        <input type="text" id="passCheck" placeholder="أدخل كلمة مرور لفحصها..." oninput="checkStrength()">
+        <div id="strengthResult" class="result">أدخل نصاً للتحليل...</div>
+    </div>
+
+    <div class="tool-box">
+        <h3>3. Base64 Encoder/Decoder (تشفير وفك تشفير)</h3>
+        <textarea id="base64Input" placeholder="أدخل النص هنا..."></textarea><br>
+        <button onclick="encodeB64()">تشفير (Encode)</button>
+        <button onclick="decodeB64()">فك تشفير (Decode)</button>
+        <div id="base64Result" class="result"></div>
+    </div>
+
+    <div class="tool-box">
+        <h3>4. Live Threat Radar (رادار التهديدات)</h3>
+        <div id="radarLog" style="height: 100px; overflow-y: hidden; font-size: 0.7rem; color: #f00;"></div>
     </div>
 
     <script>
+        // 1. Generate Password
         function genPass() {
             const chars = "0123456789abcdefghijklmnopqrstuvwxyz!@#$%^&*()ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-            let password = "";
-            for (let i = 0; i < 16; i++) {
-                password += chars.charAt(Math.floor(Math.random() * chars.length));
-            }
-            document.getElementById('passResult').innerText = "Generated: " + password;
+            let pass = Array.from({length: 20}, () => chars[Math.floor(Math.random()*chars.length)]).join('');
+            document.getElementById('passResult').innerText = "Generated: " + pass;
         }
+
+        // 2. Check Strength
+        function checkStrength() {
+            let val = document.getElementById('passCheck').value;
+            let res = document.getElementById('strengthResult');
+            if(val.length < 6) res.innerHTML = "الحالة: <span style='color:red;'>ضعيفة جداً</span>";
+            else if(val.length < 12) res.innerHTML = "الحالة: <span style='color:yellow;'>متوسطة</span>";
+            else res.innerHTML = "الحالة: <span style='color:#0f0;'>قوية جداً (تشفير عالي)</span>";
+        }
+
+        // 3. Base64
+        function encodeB64() {
+            let input = document.getElementById('base64Input').value;
+            document.getElementById('base64Result').innerText = btoa(unescape(encodeURIComponent(input)));
+        }
+        function decodeB64() {
+            let input = document.getElementById('base64Input').value;
+            try { document.getElementById('base64Result').innerText = decodeURIComponent(escape(atob(input))); }
+            catch(e) { document.getElementById('base64Result').innerText = "خطأ في التنسيق!"; }
+        }
+
+        // 4. Radar Logic
+        const radar = document.getElementById('radarLog');
+        const locations = ["Moscow", "New York", "London", "Tokyo", "Riyadh", "Berlin"];
+        setInterval(() => {
+            let loc = locations[Math.floor(Math.random()*locations.length)];
+            let ip = `192.168.${Math.floor(Math.random()*255)}.${Math.floor(Math.random()*255)}`;
+            radar.innerHTML += `[!] BLOCKING ATTEMPT FROM: ${loc} (IP: ${ip})<br>`;
+            if(radar.innerHTML.split('<br>').length > 5) radar.innerHTML = radar.innerHTML.split('<br>').slice(1).join('<br>');
+        }, 3000);
     </script>
 </body>
 </html>
